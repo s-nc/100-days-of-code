@@ -4,6 +4,6 @@ This project encapsulates my solutions to all of my favourite projects from the 
 
 Some of these can be found on Replit:
 
-★ Day 7: <a href="https://replit.com/@sandie27/Day-7-Hangman-5-Start#main.py">Hangman</a>
+★ Day 7: <a href="https://replit.com/@sandie27/Day-7-Hangman-5-Start#main.py">Hangman</a> <br>
 ★ Day 12: <a href="https://replit.com/@sandie27/guess-the-number-start#main.py">Number Guessing Game</a>
 
