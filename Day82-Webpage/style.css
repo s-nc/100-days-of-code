@@ -1,0 +1,93 @@
+body {
+background: #caf0f8;
+margin:0;
+text-align: center;
+font-family: 'Patrick Hand', cursive;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /*padding: 30px;*/
+}
+
+hr {
+background-color: white;
+height: 1px;
+border: 0;
+}
+
+.top_container {
+margin-top: 100px;
+position: relative;
+}
+
+.heading {
+font-family: "Sacramento";
+font-size: 3.75rem;
+color: #66BFBF;
+line-height: 3;
+margin-top: 100px;
+/*border: 1px solid black;*/
+}
+
+h2 {
+margin:25px;
+font-size: 1.5rem;
+color: #66BFBF;
+font-weight: normal;
+}
+
+.top_cloud {
+position: absolute;
+right: 175px;
+top: 0px;
+/*border: 1px solid black;*/
+}
+
+.bottom_cloud {
+position: absolute;
+left: 175px;
+bottom: 300px;
+/*border: 1px solid black;*/
+}
+
+h3 {
+color: #11999E;
+font-size: 2.5rem;
+margin: 70px;
+}
+
+a {
+color: #11999E;
+}
+
+.skill-row {
+margin: 100px auto 100px auto;
+width: 50%
+}
+
+.profile {
+    background-color: clear;
+}
+
+.circular--portrait {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  /*border: 1px solid black;*/
+  margin: 35px;
+
+
+}
+
+.circular--portrait img {
+  width: 100%;
+  height: auto;
+
+
+}
+
