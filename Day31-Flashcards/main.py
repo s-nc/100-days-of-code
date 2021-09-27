@@ -2,6 +2,9 @@ from tkinter import *
 import pandas as pd
 import random
 BACKGROUND_COLOR = "#B1DDC6"
+
+
+# ---------------------------- OBTAIN FRENCH/ ENGLISH WORDS ------------------------------- #
 try:
     word_data = pd.read_csv("./data/french_words.csv")
 except FileNotFoundError:
@@ -10,6 +13,7 @@ word_dict = pd.DataFrame.to_dict(word_data, orient="records")
 word = {}
 
 
+# ---------------------------- FUNCTIONS ON BUTTON CLIK / TIMER ------------------------------- #
 def new_word():
     global word, flip_timer
     window.after_cancel(flip_timer)
@@ -34,7 +38,8 @@ def flip_card():
     canvas.itemconfig(word_display, text=word['English'], fill="white")
     canvas.itemconfig(title, text="English", fill="white")
 
-
+    
+# ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title("Flashcards")
 window.config(padx=40, pady=40, bg=BACKGROUND_COLOR)
