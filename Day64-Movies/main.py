@@ -6,19 +6,22 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 import requests
 
+
+# ---------------------------- APPLICATION ------------------------------- #
 API_KEY = ******
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = *******
 Bootstrap(app)
 
-# create database
+
+# ---------------------------- CREATE DATABASE ------------------------------- #
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///movies.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-# create entry
+# ---------------------------- CREATE MOVIE CLASS ------------------------------- #
 class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(250), unique=True, nullable=False)
@@ -29,14 +32,11 @@ class Movie(db.Model):
     review = db.Column(db.String(), nullable=True)
     img_url = db.Column(db.String(), nullable=False)
 
-    #Optional: this will allow each book object to be identified by its title when printed.
-    def __repr__(self):
-        return f'<Movie {self.title}>'
-
-
+    
 db.create_all()
 
 
+# ---------------------------- CREATE FORMS ------------------------------- #
 class RateMovieForm(FlaskForm):
     rating = StringField("Your rating out of 10")
     review = StringField("Your Review")
@@ -53,18 +53,8 @@ class AddMovieForm(FlaskForm):
     # img_url = StringField("Image URL")
     submit = SubmitField("Add Movie")
 
-# new_movie = Movie(
-#     title="Phone Booth",
-#     year=2002,
-#     description="Publicist Stuart Shepard finds himself trapped in a phone booth, pinned down by an extortionist's sniper rifle. Unable to leave or receive outside help, Stuart's negotiation with the caller leads to a jaw-dropping climax.",
-#     rating=7.3,
-#     ranking=10,
-#     review="My favourite character was the caller.",
-#     img_url="https://image.tmdb.org/t/p/w500/tjrX2oWRCM3Tvarz38zlZM7Uc10.jpg")
-# db.session.add(new_movie)
-# db.session.commit()
-
-
+    
+# ---------------------------- WEBPAGES ------------------------------- #
 @app.route("/")
 def home():
     all_movies = Movie.query.order_by(Movie.rating).all()
