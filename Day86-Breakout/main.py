@@ -8,6 +8,7 @@ from scoreboard import Scoreboard
 import time
 
 
+# -------------------- GAME SCREEN SETUP -------------------- #
 screen = Screen()
 screen.bgcolor("black")
 screen.setup(width=780, height=600)
@@ -30,6 +31,7 @@ screen.listen()
 screen.onkeypress(paddle.move_left, "Left")
 screen.onkeypress(paddle.move_right, "Right")
 
+# -------------------- GAME PLAY -------------------- #
 game_on = True
 while game_on:
     ball.move()
@@ -57,7 +59,7 @@ while game_on:
         if abs(ball.ycor() - paddle.ycor()) <= paddle.shapesize()[0]*10+7:
             ball.collide()
 
-    # Detect paddle misses
+    # Detect paddle misses.
     if ball.ycor() <= -290:
         board.lose_life()
         ball.respawn()
