@@ -82,7 +82,6 @@ def delete():
 @app.route("/add", methods=["POST", "GET"])
 def add():
     form = AddMovieForm()
-    # fetch movie information using title
     if form.validate_on_submit():
         movie_title = form.title.data
         parameters = {"api_key": API_KEY, "query": movie_title}
@@ -97,6 +96,7 @@ def add():
 @app.route("/get_data")
 def get_movie_data():
     movie_id = request.args.get("id")
+    # fetch movie information using title
     if movie_id:
         movie_url = "https://api.themoviedb.org/3/movie/"+movie_id
         response = requests.get(url=movie_url, params={"api_key": API_KEY, "language": "en-US"})
