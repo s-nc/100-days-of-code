@@ -1,20 +1,15 @@
 import requests
 from tkinter import *
 
-"""response = requests.get(url="http://api.open-notify.org/iss-now.json")
-response.raise_for_status()
-
-data = response.json()
-print(data)"""
-
-
+# Fetch Kanye quote.
 def quote_kanye():
     response = requests.get(url="https://api.kanye.rest/")
     response.raise_for_status()
     quotation = response.json()["quote"]
     canvas.itemconfig(quote_label, text=quotation)
 
-
+    
+# UI Setup.
 window = Tk()
 window.title("Kanye Motivation")
 window.config(padx=30, pady=30)
