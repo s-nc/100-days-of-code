@@ -16,12 +16,3 @@ class Block(Turtle):
     def disappear(self):
         self.hideturtle()
 
-    # def move_up(self):
-    #     self.goto(self.xcor(), self.ycor() + 20)
-    #
-    # def move_down(self):
-    #     self.goto(self.xcor(), self.ycor() - 20)
-
-
-
-
