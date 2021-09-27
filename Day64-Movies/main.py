@@ -45,12 +45,6 @@ class RateMovieForm(FlaskForm):
 
 class AddMovieForm(FlaskForm):
     title = StringField("Title of movie")
-    # year = int(StringField("Year movie was made"))
-    # description = StringField("Description of movie")
-    # rating = float(StringField("Your rating out of 10"))
-    # review = StringField("Your Review")
-    # submit = SubmitField("Done")
-    # img_url = StringField("Image URL")
     submit = SubmitField("Add Movie")
 
     
@@ -88,6 +82,7 @@ def delete():
 @app.route("/add", methods=["POST", "GET"])
 def add():
     form = AddMovieForm()
+    # fetch movie information using title
     if form.validate_on_submit():
         movie_title = form.title.data
         parameters = {"api_key": API_KEY, "query": movie_title}
